@@ -1,15 +1,10 @@
 def cipher(str, key)
-  new_key = key.to_i
   alphabet = ("a".."z").to_a
-  output_arr = []
-  alpha_shift = alphabet.rotate(new_key)
-  indexes = str.downcase.chars.map {|char| alphabet.index(char)}
+  alpha_shift = alphabet.rotate(key)
 
-  while indexes.length > 0
-    output_arr << alpha_shift[indexes[0]]
-    indexes.shift
-  end
-  p output_arr.join
+  str.downcase.chars.map do |char|
+    alpha_shift[alphabet.index(char)]
+  end.join
 end
 
-cipher("Zebra", 2)
+cipher("hello", 2 )

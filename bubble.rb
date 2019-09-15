@@ -1,15 +1,20 @@
-def bubble(ary = [])
-  p ary.length
-  first_sort = []
-  second_sort = []
+def bubble(ary)
+  x = ary.length
 
-    if ary[0] > ary[1]
-      ary[0], ary[1] = ary[1], ary[0]
-      first_sort << ary[0]
-      ary.shift
-      p first_sort
-      p ary
+  loop do
+    switch = false
+
+    (x-1).times do |n|
+      if ary[n] > ary[n + 1]
+        ary[n], ary[n + 1] = ary[n + 1], ary[n]
+        switch = true
+      end
     end
+    break if switch == false
   end
+  ary
+end
 
-bubble([5, 3, 1, 2, 4])
+n = [5,3,1,2,4]
+p bubble(n)
+
